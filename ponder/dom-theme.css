@@ -1,0 +1,117 @@
+/* Theme styles using CSS custom properties */
+:root {
+  --bg: #ffffff;
+  --panel: #f4f7fb;
+  --text: #222222;
+  --accent: #0b78d1;
+  --accent-contrast: #ffffff;
+}
+
+/* Theme: Ocean */
+body.ocean {
+  --bg: #e8f6fb;
+  --panel: #d7eef8;
+  --text: #08324b;
+  --accent: #0077b6;
+  --accent-contrast: #ffffff;
+}
+
+/* Theme: Forest */
+body.forest {
+  --bg: #f0f7ef;
+  --panel: #e6f0e3;
+  --text: #163d2f;
+  --accent: #2e8b57;
+  --accent-contrast: #ffffff;
+}
+
+/* Theme: Desert */
+body.desert {
+  --bg: #fff7ec;
+  --panel: #fff3e0;
+  --text: #5b3a29;
+  --accent: #c77b39;
+  --accent-contrast: #ffffff;
+}
+
+/* Base layout */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.35s ease, color 0.35s ease;
+  /* default background image removed so CSS variables control colors; theme classes add images */
+}
+
+.container {
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 1.25rem;
+  background: var(--panel);
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+h1 { margin-top: 0; }
+
+select#theme-select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: white;
+  color: var(--text);
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.content {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.02);
+}
+
+img#logo {
+  display: block;
+  margin: 1.5rem auto 0;
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.08));
+}
+
+/* Accent link/button example */
+a, button { color: var(--accent); }
+
+/* Make select reflect theme background on dark/light variants */
+body.ocean select#theme-select { background: #eaf8ff; }
+body.forest select#theme-select { background: #eef8ee; }
+body.desert select#theme-select { background: #fff5e8; }
+
+/* Background images for themes (use workspace images folder) */
+body.ocean {
+  background-image: linear-gradient(rgba(232,246,251,0.75), rgba(232,246,251,0.75)), url("../images/ocean.jfif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.forest {
+  background-image: linear-gradient(rgba(240,247,239,0.75), rgba(240,247,239,0.75)), url("../images/forest.jfif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.desert {
+  background-image: linear-gradient(rgba(255,247,236,0.75), rgba(255,247,236,0.75)), url("../images/desert.jfif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ensure the main panel contrasts over background images */
+.container {
+  background: linear-gradient(var(--panel), var(--panel));
+}
