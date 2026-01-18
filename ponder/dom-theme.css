@@ -14,6 +14,7 @@ body.ocean {
   --text: #08324b;
   --accent: #0077b6;
   --accent-contrast: #ffffff;
+  background-image: linear-gradient(rgba(232,246,251,0.75), rgba(232,246,251,0.75)), url("../images/ocean.jfif");
 }
 
 /* Theme: Forest */
@@ -23,6 +24,7 @@ body.forest {
   --text: #163d2f;
   --accent: #2e8b57;
   --accent-contrast: #ffffff;
+  background-image: linear-gradient(rgba(240,247,239,0.75), rgba(240,247,239,0.75)), url("../images/forest.jfif");
 }
 
 /* Theme: Desert */
@@ -32,6 +34,7 @@ body.desert {
   --text: #5b3a29;
   --accent: #c77b39;
   --accent-contrast: #ffffff;
+  background-image: linear-gradient(rgba(255,247,236,0.75), rgba(255,247,236,0.75)), url("../images/desert.jfif");
 }
 
 /* Base layout */
@@ -84,34 +87,19 @@ img#logo {
 /* Accent link/button example */
 a, button { color: var(--accent); }
 
-/* Make select reflect theme background on dark/light variants */
+/* Theme-specific select backgrounds */
 body.ocean select#theme-select { background: #eaf8ff; }
 body.forest select#theme-select { background: #eef8ee; }
 body.desert select#theme-select { background: #fff5e8; }
 
-/* Background images for themes (use workspace images folder) */
-body.ocean {
-  background-image: linear-gradient(rgba(232,246,251,0.75), rgba(232,246,251,0.75)), url("../images/ocean.jfif");
+/* Background images sizing and container panel overlay */
+body.ocean, body.forest, body.desert {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-body.forest {
-  background-image: linear-gradient(rgba(240,247,239,0.75), rgba(240,247,239,0.75)), url("../images/forest.jfif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-body.desert {
-  background-image: linear-gradient(rgba(255,247,236,0.75), rgba(255,247,236,0.75)), url("../images/desert.jfif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Ensure the main panel contrasts over background images */
 .container {
   background: linear-gradient(var(--panel), var(--panel));
 }
